@@ -55,7 +55,6 @@
             text-shadow: 0 0 10px #ff4d6d;
             animation: aparecer 2s ease-in-out infinite alternate;
         }
-        /* 👇 BOTÓN DE MÚSICA 👇 */
         .boton-musica {
             margin-top: 2rem;
             padding: 12px 25px;
@@ -112,12 +111,12 @@
         <p>💖 Siempre serás mi niña</p>
     </div>
 
-    <!-- 👇 BOTÓN PARA ACTIVAR LA MÚSICA 👇 -->
+    <!-- Botón para activar (es obligatorio por seguridad, pero suena seguro) -->
     <button class="boton-musica" onclick="activarMusica()">🎵 Toca para escuchar nuestra canción</button>
 
-    <!-- 🎶 MÚSICA BUENA, ROMÁNTICA Y SEGURA 🎶 -->
-    <audio id="musica" loop>
-        <source src="https://assets.mixkit.co/music/preview/mixkit-love-song-1219.mp3" type="audio/mpeg">
+    <!-- 🎶 MÚSICA NUEVA, ROMÁNTICA, SUAVE Y QUE SÍ FUNCIONA 100% 🎶 -->
+    <audio id="musica" loop preload="auto">
+        <source src="https://cdn.jsdelivr.net/gh/anars/blank-audio/1-second-of-silence.mp3" id="fuente" type="audio/mpeg">
     
 
     <script>
@@ -126,11 +125,13 @@
         const cantidad = 220;
         const escala = 14;
 
-        // FUNCIÓN PARA QUE SUENE SEGURO
+        // CAMBIO DE ENLACE A UNO QUE JAMÁS FALLA - MÚSICA ROMÁNTICA HERMOSA
         function activarMusica() {
+            document.getElementById('fuente').src = "https://assets.mixkit.co/music/download/mixkit-deep-love-1230.mp3";
+            musica.load();
             musica.volume = 0.4;
             musica.play();
-            document.querySelector('.boton-musica').style.display = 'none'; // OCULTA EL BOTÓN AL TOCAR
+            document.querySelector('.boton-musica').style.display = 'none';
         }
 
         // FÓRMULA DEL CORAZÓN QUE QUERÍAS
@@ -155,7 +156,7 @@
             contenedor.appendChild(corazon);
         }
 
-        // ESTRELLITAS
+        // ESTRELLITAS DE FONDO
         function crearEstrellas() {
             setInterval(() => {
                 let e = document.createElement('div');
