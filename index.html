@@ -4,21 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para mi niña ❤️</title>
-    <link rel="stylesheet" href="estilo.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #000000, #2b001a, #4b002e);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+        h1 {
+            color: #ff4d6d;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 20px #ff4d6d, 0 0 30px #ff0054;
+            animation: latido 1.5s ease-in-out infinite;
+            z-index: 2;
+        }
+        .corazon-grande {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            animation: flotar 4s ease-in-out infinite;
+            z-index: 2;
+        }
+        .mensajes {
+            margin-top: 2rem;
+            text-align: center;
+            z-index: 2;
+        }
+        .mensajes p {
+            color: #ffd6e0;
+            font-size: 1.4rem;
+            margin: 0.5rem 0;
+            text-shadow: 0 0 10px #ff4d6d;
+            animation: aparecer 2s ease-in-out infinite alternate;
+        }
+        @keyframes latido {
+            0%,100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+        @keyframes flotar {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes aparecer {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        .estrella {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ff4d6d;
+            animation: caer 5s linear infinite;
+        }
+        @keyframes caer {
+            0% { transform: translateY(-10px); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+        audio {
+            position: fixed;
+            bottom: 20px;
+            opacity: 0.6;
+            z-index: 10;
+        }
+    </style>
 </head>
 <body>
-    <div class="contenedor">
-        <h1>Para la niña más linda ❤️</h1>
-        <div class="corazon" id="corazon"></div>
-        <p class="mensaje">Eres lo más bonito que me ha pasado 🥰</p>
+    <h1>❤️ Para la niña más hermosa ❤️</h1>
+    <div class="corazon-grande" id="corazon"></div>
+    <div class="mensajes">
+        <p>🥰 Eres lo mejor que me ha pasado</p>
+        <p>✨ Te quiero muchísimo</p>
+        <p>💖 Siempre serás mi niña</p>
     </div>
 
-    <!-- MÚSICA DE FONDO -->
-    <audio id="musica" autoplay loop controls>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-        Tu navegador no soporta audio.
+    <audio autoplay loop controls>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-love-song-1219.mp3" type="audio/mpeg">
     
 
-    <script src="codigo.js"></script>
+    <script>
+        const corazon = document.getElementById('corazon');
+
+        function dibujarCorazon() {
+            corazon.innerHTML = '';
+            for (let i = 0; i < 360; i += 1.5) {
+                let ang = i * Math.PI / 180;
+                let radio = 16 * Math.pow(Math.sin(ang), 3);
+                let x = radio * Math.cos(ang) * 15;
+                let y = -radio * Math.cos(ang * 1.2) * 15;
+
+                let punto = document.createElement('div');
+                punto.style.position = 'absolute';
+                punto.style.width = '14px';
+                punto.style.height = '14px';
+                
+                if (i % 15 === 0) punto.style.background = '#ffffff';
+                else if (i % 8 === 0) punto.style.background = '#ff0054';
+                else punto.style.background = '#ff4d6d';
+
+                punto.style.borderRadius = '50%';
+                punto.style.boxShadow = '0 0 12px #ff4d6d, 0 0 20px #ff0054';
+                punto.style.left = `calc(50% + ${x}px - 7px)`;
+                punto.style.top = `calc(50% + ${y}px - 7px)`;
+                corazon.appendChild(punto);
+            }
+        }
+
+        function crearEstrellas() {
+            setInterval(() => {
+                let e = document.createElement('div');
+                e.classList.add('estrella');
+                e.style.left = Math.random() * 100 + '%';
+                e.style.animationDelay = Math.random() * 3 + 's';
+                document.body.appendChild(e);
+                setTimeout(() => e.remove(), 5000);
+            }, 150);
+        }
+
+        dibujarCorazon();
+        crearEstrellas();
+    </script>
 </body>
 </html>
+
