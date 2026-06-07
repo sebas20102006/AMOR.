@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #000;
+  overflow: hidden;
+}
+
+.contenedor-corazon {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.corazon {
+  position: absolute;
+  color: #ff4d6d;
+  font-size: 12px;
+  animation: latido 1.5s ease-in-out infinite;
+  opacity: 0.9;
+}
+
+@keyframes latido {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
