@@ -1,173 +1,216 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para mi niña ❤️</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background: linear-gradient(135deg, #000000, #2b001a, #4b002e);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            font-family: 'Arial', sans-serif;
-        }
-        h1 {
-            color: #ff4d6d;
-            font-size: 2.2rem;
-            margin-bottom: 2rem;
-            text-shadow: 0 0 20px #ff4d6d, 0 0 30px #ff0054;
-            animation: latido 1.5s ease-in-out infinite;
-            z-index: 2;
-            text-align: center;
-        }
-        .contenedor-corazon {
-            position: relative;
-            width: 450px;
-            height: 450px;
-            animation: flotar 4s ease-in-out infinite;
-            z-index: 2;
-        }
-        .corazon {
-            position: absolute;
-            color: #ff4d6d;
-            font-size: 14px;
-            text-shadow: 0 0 8px #ff4d6d;
-            animation: latido-pequeno 1.5s ease-in-out infinite;
-        }
-        .mensajes {
-            margin-top: 1rem;
-            text-align: center;
-            z-index: 2;
-        }
-        .mensajes p {
-            color: #ffd6e0;
-            font-size: 1.4rem;
-            margin: 0.5rem 0;
-            text-shadow: 0 0 10px #ff4d6d;
-            animation: aparecer 2s ease-in-out infinite alternate;
-        }
-        .boton-musica {
-            margin-top: 2rem;
-            padding: 12px 25px;
-            background: #ff4d6d;
-            color: white;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            box-shadow: 0 0 15px #ff4d6d;
-            animation: latido 1.5s infinite;
-            z-index: 10;
-        }
-        .boton-musica:hover {
-            background: #ff0054;
-        }
-        @keyframes latido {
-            0%,100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
-        }
-        @keyframes latido-pequeno {
-            0%,100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-        @keyframes flotar {
-            0%,100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        @keyframes aparecer {
-            0% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
-        .estrella {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background: #fff;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #ff4d6d;
-            animation: caer 5s linear infinite;
-        }
-        @keyframes caer {
-            0% { transform: translateY(-10px); opacity: 1; }
-            100% { transform: translateY(100vh); opacity: 0; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Mi Niña ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#000000,#250014,#4d002e);
+}
+
+h1{
+    color:#ff4d6d;
+    text-align:center;
+    margin-bottom:20px;
+    text-shadow:0 0 15px #ff4d6d;
+    animation:latido 1.5s infinite;
+    z-index:2;
+}
+
+.contenedor-corazon{
+    position:relative;
+    width:min(450px,90vw);
+    height:min(450px,90vw);
+    animation:flotar 4s ease-in-out infinite;
+    z-index:2;
+}
+
+.corazon{
+    position:absolute;
+    transform:translate(-50%,-50%);
+    font-size:14px;
+    animation:latidoPequeno 1.5s infinite;
+    text-shadow:0 0 10px #ff4d6d;
+}
+
+.mensajes{
+    text-align:center;
+    margin-top:10px;
+    z-index:2;
+}
+
+.mensajes p{
+    color:#ffd6e0;
+    font-size:1.2rem;
+    margin:8px 0;
+    text-shadow:0 0 10px #ff4d6d;
+}
+
+.boton{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#ff4d6d;
+    color:white;
+    cursor:pointer;
+    font-size:1rem;
+    box-shadow:0 0 15px #ff4d6d;
+    animation:latido 1.5s infinite;
+}
+
+.boton:hover{
+    background:#ff1f55;
+}
+
+.estrella{
+    position:absolute;
+    width:4px;
+    height:4px;
+    border-radius:50%;
+    background:white;
+    box-shadow:0 0 10px white;
+    animation:caer 5s linear forwards;
+}
+
+@keyframes latido{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+}
+
+@keyframes latidoPequeno{
+    0%,100%{transform:translate(-50%,-50%) scale(1);}
+    50%{transform:translate(-50%,-50%) scale(1.25);}
+}
+
+@keyframes flotar{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+@keyframes caer{
+    from{
+        transform:translateY(-20px);
+        opacity:1;
+    }
+    to{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+}
+</style>
 </head>
+
 <body>
-    <h1>❤️ Para la niña más hermosa ❤️</h1>
-    <div class="contenedor-corazon" id="contenedor"></div>
-    <div class="mensajes">
-        <p>🥰 Eres lo mejor que me ha pasado</p>
-        <p>✨ Te quiero muchísimo</p>
-        <p>💖 Siempre serás mi niña</p>
-    </div>
 
-    <!-- Botón para activar (es obligatorio por seguridad, pero suena seguro) -->
-    <button class="boton-musica" onclick="activarMusica()">🎵 Toca para escuchar nuestra canción</button>
+<h1>❤️ Para la niña más hermosa ❤️</h1>
 
-    <!-- 🎶 MÚSICA NUEVA, ROMÁNTICA, SUAVE Y QUE SÍ FUNCIONA 100% 🎶 -->
-    <audio id="musica" loop preload="auto">
-        <source src="https://cdn.jsdelivr.net/gh/anars/blank-audio/1-second-of-silence.mp3" id="fuente" type="audio/mpeg">
-    
+<div class="contenedor-corazon" id="contenedor"></div>
 
-    <script>
-        const contenedor = document.getElementById('contenedor');
-        const musica = document.getElementById('musica');
-        const cantidad = 220;
-        const escala = 14;
+<div class="mensajes">
+    <p>🥰 Eres lo mejor que me ha pasado</p>
+    <p>✨ Gracias por existir</p>
+    <p>💖 Te quiero muchísimo</p>
+</div>
 
-        // CAMBIO DE ENLACE A UNO QUE JAMÁS FALLA - MÚSICA ROMÁNTICA HERMOSA
-        function activarMusica() {
-            document.getElementById('fuente').src = "https://assets.mixkit.co/music/download/mixkit-deep-love-1230.mp3";
-            musica.load();
-            musica.volume = 0.4;
-            musica.play();
-            document.querySelector('.boton-musica').style.display = 'none';
-        }
+<button class="boton" onclick="activarMusica()">
+🎵 Toca aquí mi amor
+</button>
 
-        // FÓRMULA DEL CORAZÓN QUE QUERÍAS
-        function obtenerCoordenadas(t) {
-            let x = 16 * Math.pow(Math.sin(t), 3);
-            let y = 13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t);
-            return { x, y };
-        }
+<audio id="musica" loop>
+    <!-- Cambia este archivo por tu MP3 favorito -->
+    <source src="musica-romantica.mp3" type="audio/mpeg">
+</audio>
 
-        // DIBUJAR CORAZÓN DE CORAZONCITOS
-        for (let i = 0; i < cantidad; i++) {
-            let t = (i / cantidad) * 2 * Math.PI;
-            let { x, y } = obtenerCoordenadas(t);
+<script>
 
-            const corazon = document.createElement('div');
-            corazon.className = 'corazon';
-            corazon.innerHTML = '❤️';
-            corazon.style.left = `calc(50% + ${x * escala}px)`;
-            corazon.style.top = `calc(50% - ${y * escala}px)`;
-            corazon.style.animationDelay = `${Math.random() * 1.5}s`;
+const contenedor = document.getElementById("contenedor");
+const cantidad = 250;
+const escala = 12;
 
-            contenedor.appendChild(corazon);
-        }
+function coordenadasCorazon(t){
+    return{
+        x:16*Math.pow(Math.sin(t),3),
+        y:13*Math.cos(t)
+          -5*Math.cos(2*t)
+          -2*Math.cos(3*t)
+          -Math.cos(4*t)
+    };
+}
 
-        // ESTRELLITAS DE FONDO
-        function crearEstrellas() {
-            setInterval(() => {
-                let e = document.createElement('div');
-                e.classList.add('estrella');
-                e.style.left = Math.random() * 100 + '%';
-                e.style.animationDelay = Math.random() * 3 + 's';
-                document.body.appendChild(e);
-                setTimeout(() => e.remove(), 5000);
-            }, 150);
-        }
-        crearEstrellas();
-    </script>
+for(let i=0;i<cantidad;i++){
+
+    const t=(i/cantidad)*2*Math.PI;
+
+    const {x,y}=coordenadasCorazon(t);
+
+    const corazon=document.createElement("div");
+
+    corazon.className="corazon";
+    corazon.innerHTML="❤️";
+
+    corazon.style.left=
+        `${50+(x*escala/450)*100}%`;
+
+    corazon.style.top=
+        `${50-(y*escala/450)*100}%`;
+
+    corazon.style.animationDelay=
+        `${Math.random()*1.5}s`;
+
+    contenedor.appendChild(corazon);
+}
+
+function activarMusica(){
+
+    const musica=document.getElementById("musica");
+
+    musica.volume=0.4;
+
+    musica.play()
+    .then(()=>{
+        document.querySelector(".boton")
+        .style.display="none";
+    })
+    .catch(()=>{
+        alert("Agrega un archivo llamado 'musica-romantica.mp3' junto al HTML.");
+    });
+}
+
+function crearEstrella(){
+
+    const estrella=document.createElement("div");
+
+    estrella.className="estrella";
+
+    estrella.style.left=
+        Math.random()*100+"%";
+
+    document.body.appendChild(estrella);
+
+    setTimeout(()=>{
+        estrella.remove();
+    },5000);
+}
+
+setInterval(crearEstrella,200);
+
+</script>
+
 </body>
 </html>
